@@ -1,4 +1,4 @@
-import { createObsducer } from "./index";
+import createObsducer from "./index";
 import { map } from "rxjs/operators";
 
 test("create obsducer", () => {
