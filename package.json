@@ -1,0 +1,46 @@
+{
+  "name": "obsducer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "types": "build",
+  "scripts": {
+    "start": "npm run build && node build/index.js",
+    "build": "rimraf ./build && tsc --declaration",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.6",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.4",
+    "ts-jest": "^24.3.0"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
