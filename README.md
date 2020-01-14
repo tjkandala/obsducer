@@ -26,7 +26,7 @@ $ npm i rxjs
 
 ## How it Works
 
-`createObsducer` takes a pipeline of RxJS operators and returns a transducer (obsducer?) that efficiently transforms an array.
+`createObsducer` takes a pipeline of RxJS operators and returns a transducer that efficiently transforms an array. I call it an obsducer because it creates an observable from the array it is invoked with, then 
 
 RxJS operators (e.g. map, filter, takeLast) return unary functions; they take an Observable, and they return an Observable.  Some operators, like map and reduce, need to be called with callbacks (e.g. projections, predicates, reducers) which will be applied to each value that passes through. 
 
@@ -50,7 +50,9 @@ const bothPipedOps = pipe(firstPipedOps, secondPipedOps);
 Obsducers abstract away the process of observable creation, subscription, value retrieval, and unsubscription to allow you to think in terms of data transformations. They give you the readability of functional array methods such as map and reduce, but with more reusability/composability (array method chains are specific to the place you define them) and better performance (no intermediate array creation; each value passes through the pipeline like a conveyer belt).
 
 Concepts:
-[Observables](https://rxjs-dev.firebaseapp.com/guide/observable)
+* [Observables](https://rxjs-dev.firebaseapp.com/guide/observable)
+* [Transducers (Clojure Implementation)](https://clojure.org/reference/transducers)
+* [Transducers (General Concept)](https://medium.com/javascript-scene/transducers-efficient-data-processing-pipelines-in-javascript-7985330fe73d)
 
 
 ## Usage
