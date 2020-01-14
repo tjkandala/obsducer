@@ -6,6 +6,12 @@
 
 ## Motivation
 
+* Chaining native JS array methods enables delarative array transformations. However, each method returns a new array, making them sluggish compared to imperative loops. You don't need these intermediate arrays because you only care about the process of transforming the array from one form to another. As you add more steps to your process and more elements to your array, your performance increasingly suffers.
+
+* Array method chains are specific; it's hard to extract and compose pieces of the chain.
+
+* RxJS operators are powerful, well-tested, and type-safe. Unfortunately, most people, including myself, use them exclusively for asynchronous observables. Popular RxJS use cases include drag-and-drop, autocomplete, and redux-observable. I wanted a way to make them easier to use for synchronous use cases, specifically array transformations. 
+
 ## Install
 
 ```
