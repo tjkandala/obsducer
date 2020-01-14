@@ -45,7 +45,7 @@ const result = executeObsducer(
 2) 
 
 ```js
-import createObsducer, { executeObsducer } from "obsducer";
+import createObsducer from "obsducer";
 import { pipe } from "rxjs";
 import { map, filter, take } from "rxjs/operators";
 
