@@ -14,7 +14,8 @@ $ npm i obsducer
 
 ## How it Works
 
-`createObsducer` takes a pipeline of RxJS operators and returns a transducer that efficiently transforms an array.
+`createObsducer` takes a pipeline of RxJS operators and returns a transducer (obsducer?) that efficiently transforms an array.
+
 RxJS operators (e.g. map, filter, takeLast) return unary functions; they take an Observable, and they return an Observable.  Some operators, like map and reduce, need to be called with callbacks (e.g. projections, predicates, reducers) which will be applied to each value that passes through. 
 
 You can create pipelines with any pipe function, but I recommend RxJS's static pipe function because it comes with Typescript function overloads for up to 9 piped functions. Typing variadic functions in Typescript is tedious, so it is very convenient to be able to pipe any amount of operators with RxJS `pipe`
@@ -32,10 +33,9 @@ const secondPipedOps = pipe(
 );
 // Even though we're piping 16 operators, Typescript can infer the types with this method!
 const bothPipedOps = pipe(firstPipedOps, secondPipedOps);
-
 ```
 
-Obsducers abstract away the process of observable creation, subscription, value retrieval, and unsubscription to allow you to think in terms of data transformations. 
+Obsducers abstract away the process of observable creation, subscription, value retrieval, and unsubscription to allow you to think in terms of data transformations. They give you the readability of functional array methods such as map and reduce, but with more reusability/composability (array method chains are specific to the place you define them) and better performance (no intermediate array creation; each value passes through the pipeline like a conveyer belt).
 
 ## Usage
 
@@ -46,9 +46,9 @@ Obsducers abstract away the process of observable creation, subscription, value 
 
 ### Ways to use obsducer: 
 
-1) createObsducer from . While this is a contrived example,  (TODO: link to real world use) (recommended approach) 
+* createObsducer from . While this is a contrived example, it demonstrates the value proposition of obsducer. Reuse pipelines (TODO: link to real world use) (recommended approach) 
 
-```js
+```ts
 import createObsducer from "obsducer";
 import { pipe } from "rxjs";
 import { map, filter, take } from "rxjs/operators";
@@ -93,9 +93,9 @@ const result3A = obsducer3(beforeArrayA);
 const result3B = obsducer3(beforeArrayB);
 ```
 
-2) executeObsducer: create observable from array, pipe all the operators you need, and immediately execute. Do this if you know you're only going to use this exact transducer/transformation in one place. You still get the performance advantage over native array method chaining, but you lose a little bit of (subjective) readability.
+* executeObsducer: create observable from array, pipe all the operators you need, and immediately execute. Do this if you know you're only going to use this exact transducer/transformation in one place. You still get the performance advantage over native array method chaining, but you lose a little bit of (subjective) readability.
 
-```js
+```ts
 import { executeObsducer } from "obsducer";
 import { from } from "rxjs"
 import { map, filter, take } from "rxjs/operators";
