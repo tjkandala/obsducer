@@ -6,7 +6,7 @@
 
 ## Motivation
 
-* Chaining native JS array methods enables delarative array transformations. However, each method returns a new array, making them sluggish compared to imperative loops. You don't need these intermediate arrays because you only care about the process of transforming the array from one form to another. As you add more steps to your process and more elements to your array, your performance increasingly suffers.
+* Chaining native JS array methods enables declarative array transformations. However, each method returns a new array, making them sluggish compared to imperative loops. You don't need these intermediate arrays because you only care about the process of transforming the array from one form to another. As you add more steps to your process and more elements to your array, your apps performance increasingly suffers.
 
 * Array method chains are specific; it's hard to extract and compose pieces of the chain.
 
@@ -48,6 +48,10 @@ const bothPipedOps = pipe(firstPipedOps, secondPipedOps);
 ```
 
 Obsducers abstract away the process of observable creation, subscription, value retrieval, and unsubscription to allow you to think in terms of data transformations. They give you the readability of functional array methods such as map and reduce, but with more reusability/composability (array method chains are specific to the place you define them) and better performance (no intermediate array creation; each value passes through the pipeline like a conveyer belt).
+
+Concepts:
+[Observables](https://rxjs-dev.firebaseapp.com/guide/observable)
+
 
 ## Usage
 
