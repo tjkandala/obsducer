@@ -2,6 +2,12 @@
 
 ## Motivation
 
+## Install
+
+```
+$ npm i obsducer
+```
+
 ## Performance
 
 ## Usage
@@ -15,7 +21,10 @@
 
 1) executeObsducer: create observable from array, pipe all the operators you need, and immediately execute. Do this if you know you're only going to use this exact transducer/transformation in one place. You still get the performance advantage over native array method chaining, but you lose a little bit of (subjective) readability.
 
-``` executeObsducer() ```
+
+```js
+import createObsducer from "obsducer";
+```
 
 ## API Reference
 
