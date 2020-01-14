@@ -14,6 +14,12 @@ $ npm i obsducer
 
 ## How it Works
 
+RxJS operators (e.g. map, filter, takeLast) return unary functions; they take an Observable, and they return an Observable. Some operators, like map and reduce, need to be called with callbacks (e.g. projections, predicates, reducers) which will be applied to each value that passes through. 
+
+Obsducers allow you to efficiently process arrays through data-flow pipelines synchronously with RxJS operators. You can manually make an observable from an array (using `from` from RxJS), but retrieving the return value is clunky and adds meaningless noise to your program. The fact that an obsducer uses an observable to mimic transducers is an implementation detail that you shouldn't need to deal with. 
+
+Obsducers abstract away the process of observable creation, subscription, value retrieval, and unsubscription to allow you to think in terms of data transformations. 
+
 ## Usage
 
 ### Why you'd use obsducer:
@@ -23,26 +29,7 @@ $ npm i obsducer
 
 ### Ways to use obsducer: 
 
-1) executeObsducer: create observable from array, pipe all the operators you need, and immediately execute. Do this if you know you're only going to use this exact transducer/transformation in one place. You still get the performance advantage over native array method chaining, but you lose a little bit of (subjective) readability.
-
-```js
-import { executeObsducer } from "obsducer";
-import { from } from "rxjs"
-import { map, filter, take } from "rxjs/operators";
-
-// using internal execution function
-const result = executeObsducer(
-    from(beforeArray).pipe(
-        map(addOne), 
-        filter(isGreaterThanThree),
-        take(2), 
-        map(addOne), 
-        map(numberToString)
-    )
-  );
-```
-
-2) 
+1) createObsducer from . While this is a contrived example,  (TODO: link to real world use) (recommended approach) 
 
 ```js
 import createObsducer from "obsducer";
@@ -87,6 +74,25 @@ const result2B = obsducer2(beforeArrayB);
 // result3A: []
 const result3A = obsducer3(beforeArrayA);
 const result3B = obsducer3(beforeArrayB);
+```
+
+2) executeObsducer: create observable from array, pipe all the operators you need, and immediately execute. Do this if you know you're only going to use this exact transducer/transformation in one place. You still get the performance advantage over native array method chaining, but you lose a little bit of (subjective) readability.
+
+```js
+import { executeObsducer } from "obsducer";
+import { from } from "rxjs"
+import { map, filter, take } from "rxjs/operators";
+
+// using internal execution function
+const result = executeObsducer(
+    from(beforeArray).pipe(
+        map(addOne), 
+        filter(isGreaterThanThree),
+        take(2), 
+        map(addOne), 
+        map(numberToString)
+    )
+  );
 ```
 
 ## Performance
