@@ -12,6 +12,12 @@
 $ npm i obsducer
 ```
 
+If you're not already using RxJS:
+
+```
+$ npm i rxjs
+```
+
 ## How it Works
 
 `createObsducer` takes a pipeline of RxJS operators and returns a transducer (obsducer?) that efficiently transforms an array.
