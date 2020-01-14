@@ -101,7 +101,7 @@ For arrays with 100,000 elements, the obsducer method is slightly slower than a 
 
 <img src="https://user-images.githubusercontent.com/37420160/72314881-97cf6a80-365e-11ea-8bbe-736b456fde94.png" height="400" width="400">
 
-You probably wouldn't be thinking about optimizing your code when manipulating arrays of 10 elements... but if you find yourself in that situation, you should stick to native array method chaining or loops.
+You probably wouldn't be thinking about optimizing your code when manipulating arrays of 10 elements... but if you find yourself in that situation, you should stick to native array method chaining or loops. I still use obsducer for small-ish arrays to take advantage of RxJS operators.
 <img src="https://user-images.githubusercontent.com/37420160/72314859-8b4b1200-365e-11ea-8a5b-61a68b85e8a3.png" height="400" width="400">
 
 ## API Reference
