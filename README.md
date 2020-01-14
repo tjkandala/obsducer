@@ -54,18 +54,18 @@ const addOne = (x: number) => x + 1;
 const isGreaterThanThree = (x: number) => x > 3;
 const numberToString = (x: number) => x.toString();
 
-const firstPipe = pipe(
+const firstPipedOps = pipe(
     map(addOne), 
     filter(isGreaterThanThree)
 );
 
-const secondPipe = pipe(
+const secondPipedOps = pipe(
     take(2), 
     map(addOne), 
     map(numberToString)
 );
 
-const firstAndSecondPipe = pipe(
+const bothPipedOps = pipe(
     firstPipe, 
     secondPipe
 );
@@ -74,9 +74,9 @@ const beforeArrayA = [1, 2, 3, 4, 5];
 const beforeArrayB = [0, 1, 2, 3, 4];
 
 // pass different pipes and combinations of pipe to create reusable transducers
-const obsducer1 = createObsducer(firstPipe);
-const obsducer2 = createObsducer(secondPipe);
-const obsducer3 = createObsducer(firstAndSecondPipe);
+const obsducer1 = createObsducer(firstPipedOps);
+const obsducer2 = createObsducer(secondPipedOps);
+const obsducer3 = createObsducer(bothPipedOps);
 
 // result1A: [4, 5, 6]
 const result1A = obsducer1(beforeArrayA);
