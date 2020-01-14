@@ -14,9 +14,26 @@ $ npm i obsducer
 
 ## How it Works
 
-RxJS operators (e.g. map, filter, takeLast) return unary functions; they take an Observable, and they return an Observable. Some operators, like map and reduce, need to be called with callbacks (e.g. projections, predicates, reducers) which will be applied to each value that passes through. 
+`createObsducer` takes a pipeline of RxJS operators and returns a transducer that efficiently transforms an array.
+RxJS operators (e.g. map, filter, takeLast) return unary functions; they take an Observable, and they return an Observable.  Some operators, like map and reduce, need to be called with callbacks (e.g. projections, predicates, reducers) which will be applied to each value that passes through. 
 
-Obsducers allow you to efficiently process arrays through data-flow pipelines synchronously with RxJS operators. You can manually make an observable from an array (using `from` from RxJS), but retrieving the return value is clunky and adds meaningless noise to your program. The fact that an obsducer uses an observable to mimic transducers is an implementation detail that you shouldn't need to deal with. 
+You can create pipelines with any pipe function, but I recommend RxJS's static pipe function because it comes with Typescript function overloads for up to 9 piped functions. Typing variadic functions in Typescript is tedious, so it is very convenient to be able to pipe any amount of operators with RxJS `pipe`
+
+```ts
+import { pipe } from 'rxjs'
+
+const firstPipedOps = pipe(
+    map(addOne), map(addOne), map(addOne), map(addOne),
+    map(addOne), map(addOne), map(addOne), map(addOne),
+);
+const secondPipedOps = pipe(
+    map(subtractOne), map(subtractOne), map(subtractOne), map(subtractOne),
+    map(subtractOne), map(subtractOne), map(subtractOne), map(subtractOne),
+);
+// Even though we're piping 16 operators, Typescript can infer the types with this method!
+const bothPipedOps = pipe(firstPipedOps, secondPipedOps);
+
+```
 
 Obsducers abstract away the process of observable creation, subscription, value retrieval, and unsubscription to allow you to think in terms of data transformations. 
 
