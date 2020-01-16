@@ -3,6 +3,7 @@
 <img src="https://user-images.githubusercontent.com/37420160/72317608-d289d080-3667-11ea-91c7-381064d467d7.png" width="400">
 <img src="https://user-images.githubusercontent.com/37420160/72317615-d61d5780-3667-11ea-8f2e-6a40c25532d8.png" width="400">
 
+(README is unfinished! Need to finish API Reference and Credits)
 
 ## Motivation
 
