@@ -105,7 +105,7 @@ const result1B = obsducer1(beforeArrayB);
 // result2A: ["1", "2"];
 const result2A = obsducer2(beforeArrayA);
 const result2B = obsducer2(beforeArrayB);
-// result3A: []
+// result3A: ["5", "6"]
 const result3A = obsducer3(beforeArrayA);
 const result3B = obsducer3(beforeArrayB);
 ```
