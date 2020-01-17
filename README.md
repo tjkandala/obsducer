@@ -5,6 +5,8 @@
 
 (README is unfinished! Need to finish API Reference and Credits)
 
+[Usage in my project](https://github.com/tjkandala/xplosive/blob/master/src/workoutGenerator/calculateIntensity.ts#L70)
+
 ## Motivation
 
 * Chaining native JS array methods enables declarative array transformations. However, each method returns a new array, making them sluggish compared to imperative loops. You don't need these intermediate arrays because you only care about the process of transforming the array from one form to another. As you add more steps to your process and more elements to your array, your apps performance increasingly suffers.
