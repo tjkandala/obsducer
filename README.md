@@ -4,6 +4,7 @@
 <img src="https://user-images.githubusercontent.com/37420160/72317615-d61d5780-3667-11ea-8f2e-6a40c25532d8.png" width="400">
 
 (README is unfinished! Need to finish API Reference and Credits)
+TODO: Rewrite without RxJS dependency (for more perf + bundle size benefits)
 
 [Usage in my project](https://github.com/tjkandala/xplosive/blob/master/src/workoutGenerator/calculateIntensity.ts#L70)
 
