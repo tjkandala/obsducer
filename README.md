@@ -151,3 +151,10 @@ You probably wouldn't be thinking about optimizing your code when manipulating a
 ## API Reference
 
 ## Credits/Prior Art
+
+Inspired by:
+
+https://github.com/cognitect-labs/transducers-js
+
+https://dev.to/rasmusvhansen/rxjs-transducer---harness-the-power-of-rxjs-operators-1ai8
+
