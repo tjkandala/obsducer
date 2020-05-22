@@ -158,3 +158,4 @@ https://github.com/cognitect-labs/transducers-js
 
 https://dev.to/rasmusvhansen/rxjs-transducer---harness-the-power-of-rxjs-operators-1ai8
 
+I liked the idea of the latter, but wanted to invert the API.
