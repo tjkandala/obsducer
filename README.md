@@ -1,11 +1,9 @@
 # obsducer
 
-TODO: Rewrite without RxJS dependency (for more perf + bundle size benefits)
+NOTE: Just use a for-loop with good comments/documentation. When I created this library, the 2 projects I made it for were heavily reliant on RxJS. It isn't worth bringing in as a dependency to "improve performance." This library can improve your code's readability (highly subjective) while preserving most of its performance if you already use RxJS, but you should forgo the extra layer of abstraction if not.
 
 <img src="https://user-images.githubusercontent.com/37420160/72317608-d289d080-3667-11ea-91c7-381064d467d7.png" width="400">
 <img src="https://user-images.githubusercontent.com/37420160/72317615-d61d5780-3667-11ea-8f2e-6a40c25532d8.png" width="400">
-
-(README is unfinished! Need to finish API Reference and Credits)
 
 [Usage in my project](https://github.com/tjkandala/xplosive/blob/master/src/workoutGenerator/calculateIntensity.ts#L70)
 
